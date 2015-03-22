@@ -3,6 +3,20 @@ angular.module('starter.controllers', [])
 .controller('MapCtrl', function($scope, $ionicLoading) {
   $scope.mapCreated = function(map) {
     $scope.map = map;
+    
+     var site = new google.maps.LatLng(55.9879314,-4.3042387);
+     var hospital = new google.maps.LatLng(55.8934378,-4.2201905);
+      var marker = new google.maps.Marker({
+          position: site,
+          map: map,
+          title: 'Strathblane (Job Location)'
+        });
+        
+        var hospitalRoute = new google.maps.Marker({
+          position: hospital,
+          map: map,
+          title: 'Hospital (Stobhill)'
+        });
   };
 
   $scope.centerOnMe = function () {

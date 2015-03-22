@@ -22,6 +22,14 @@ angular.module('starter.directives', [])
           e.preventDefault();
           return false;
         });
+        
+        google.maps.event.addListener(map, 'center_changed', function() {
+            console.log('center changed');
+          });
+
+          google.maps.event.addListener(map, 'bounds_changed', function() {
+            console.log('bounds changed');
+          });
       }
 
       if (document.readyState === "complete") {
