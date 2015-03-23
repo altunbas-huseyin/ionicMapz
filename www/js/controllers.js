@@ -1,7 +1,28 @@
 angular.module('starter.controllers', [])
 
+.controller('DashCtrl', function($scope) {})
+
+.controller('ChatsCtrl', function($scope, Chats) {
+  $scope.chats = Chats.all();
+  $scope.remove = function(chat) {
+    Chats.remove(chat);
+  }
+})
+
+.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
+  $scope.chat = Chats.get($stateParams.chatId);
+})
+
+.controller('AccountCtrl', function($scope) {
+  $scope.settings = {
+    enableFriends: true
+  };
+})
+
 .controller('MapCtrl', function($scope, $ionicLoading) {
+	console.log('map ctrl loading');
   $scope.mapCreated = function(map) {
+	  console.log('map created');
     $scope.map = map;
     
      var site = new google.maps.LatLng(55.9879314,-4.3042387);
